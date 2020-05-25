@@ -1,5 +1,6 @@
 import express from "express";
-import router from "./routes/auth-routes.js";
+import authRoutes from "./routes/auth-routes.js";
+import profileRoutes from "./routes/profile-routes.js";
 import "./config/env.js";
 import "./config/passport-setup.js";
 import mongoose from "mongoose";
@@ -32,8 +33,9 @@ mongoose.connect(
   }
 );
 
-// set up routes
-app.use("/auth", router);
+// ROUTES
+app.use("/auth", authRoutes);
+app.use("/profile", profileRoutes);
 
 // create home route
 app.get("/", (req, res) => {
