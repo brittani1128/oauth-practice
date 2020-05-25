@@ -4,13 +4,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OAuth Tutorials</title>
+  <style>
+    nav {
+      background:#227e81;
+      margin: 20px, 10px;
+      font-family:arial;
+    }
+    nav ul {
+      margin: 0 auto;
+      padding-left:10px;
+    }
+    nav li {
+      list-style-type:none;
+      display:inline-block;
+      color:white;
+      padding:20px 10px;
+    }
+    nav a {
+      color:#fff;
+      font-size:20px;
+      text-decoration:none;
+      background:#115e60;
+      padding:10px;
+      letter-spacing:3px;
+    }
+    h2 {
+      font-family:arial;
+    }
+    main, header {
+      padding-left:20px;
+    }
+</style>
 </head>
 <body>
   <nav>
     <ul>
+      <% if (user) { %>
       <li><a href='/auth/logout'>Logout</a></li>
+      <% } else { %>
       <li><a href='/auth/login'>Login</a></li>
+      <% } %>
       <li><a href='/'>Home</a></li>
+      <li><a href='/profile'>Profile</a></li>
     </ul>
   </nav>
   <header>
