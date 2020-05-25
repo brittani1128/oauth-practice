@@ -24,7 +24,7 @@ router.get(
 
 // callback route
 router.get("/google/redirect", passport.authenticate("google"), (req, res) => {
-  res.send("you reached the callback uri");
+  res.send(req.user);
 });
 
 export default router;
