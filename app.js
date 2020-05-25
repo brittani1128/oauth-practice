@@ -37,9 +37,9 @@ mongoose.connect(
 app.use("/auth", authRoutes);
 app.use("/profile", profileRoutes);
 
-// create home route
+// home route
 app.get("/", (req, res) => {
-  res.render("home");
+  res.render("home", { user: req.user });
 });
 
 app.listen(3000, () =>
