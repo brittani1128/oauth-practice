@@ -24,16 +24,15 @@ passport.use(
       // check if user exists in db
       User.findOne({ googleId: profile.id }).then((user) => {
         if (user) {
-          console.log("current user", user);
           done(null, user);
         } else {
           new User({
             username: profile.displayName,
             googleId: profile.id,
+            thumbnail: profile._json.picture,
           })
             .save()
             .then((newUser) => {
-              console.log({ newUser });
               done(null, newUser);
             });
         }
